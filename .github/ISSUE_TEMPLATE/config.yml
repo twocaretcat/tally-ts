@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Question
+    url: https://github.com/twocaretcat/tally-ts/discussions
+    about: If you have a question, please open a discussion.
+  - name: 🛡️ Security Vulnerability
+    url: https://github.com/twocaretcat/tally-ts/security
+    about: If you discover a security vulnerability, please report it privately.
