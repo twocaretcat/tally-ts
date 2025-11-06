@@ -22,6 +22,7 @@
     "npm:@semantic-release/exec@^7.1.0": "7.1.0_semantic-release@24.2.9__marked@15.0.12",
     "npm:@semantic-release/git@^10.0.1": "10.0.1_semantic-release@24.2.9__marked@15.0.12",
     "npm:@types/node@*": "24.2.0",
+    "npm:conventional-changelog-conventionalcommits@^9.1.0": "9.1.0",
     "npm:semantic-release@24.2.9": "24.2.9_marked@15.0.12"
   },
   "jsr": {
@@ -556,6 +557,12 @@
     },
     "conventional-changelog-angular@8.1.0": {
       "integrity": "sha512-GGf2Nipn1RUCAktxuVauVr1e3r8QrLP/B0lEUsFktmGqc3ddbQkhoJZHJctVU829U1c6mTSWftrVOCHaL85Q3w==",
+      "dependencies": [
+        "compare-func"
+      ]
+    },
+    "conventional-changelog-conventionalcommits@9.1.0": {
+      "integrity": "sha512-MnbEysR8wWa8dAEvbj5xcBgJKQlX/m0lhS8DsyAAWDHdfs2faDJxTgzRYlRYpXSe7UiKrIIlB4TrBKU9q9DgkA==",
       "dependencies": [
         "compare-func"
       ]
@@ -1727,6 +1734,7 @@
       "jsr:@std/testing@^1.0.16",
       "npm:@semantic-release/exec@^7.1.0",
       "npm:@semantic-release/git@^10.0.1",
+      "npm:conventional-changelog-conventionalcommits@^9.1.0",
       "npm:semantic-release@24.2.9"
     ]
   }
