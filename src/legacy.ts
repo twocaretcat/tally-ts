@@ -103,8 +103,7 @@ function isEndMark(character: string): boolean {
 /**
  * Analyzes text and returns counts for various statistics.
  *
- * Uses grapheme segmentation to properly handle Unicode characters. Logs
- * processing time to the console for performance monitoring.
+ * Uses grapheme segmentation to properly handle Unicode characters.
  *
  * @deprecated Use the new class-based counter instead.
  *
@@ -112,10 +111,10 @@ function isEndMark(character: string): boolean {
  * @param locales - The locale(s) to use for grapheme segmentation (default: 'en')
  * @returns An object containing all computed counts
  */
-export async function getCounts(
+export function getCounts(
 	text: string,
 	locales: Intl.LocalesArgument = 'en',
-): Promise<{
+): {
 	characters: number;
 	words: number;
 	sentences: number;
@@ -125,8 +124,7 @@ export async function getCounts(
 	letters: number;
 	digits: number;
 	symbols: number;
-}> {
-	const startTime = performance.timeOrigin + performance.now();
+} {
 	const graphemeSegmenter = new Intl.Segmenter(locales, {
 		granularity: 'grapheme',
 	});
@@ -198,10 +196,6 @@ export async function getCounts(
 	if (characters > 0) {
 		lines++;
 	}
-
-	console.debug(
-		`Processed text in ${(performance.timeOrigin + performance.now() - startTime).toFixed(0)}ms`,
-	);
 
 	return {
 		characters,

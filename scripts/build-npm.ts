@@ -30,7 +30,7 @@ await build({
 	shims: {},
 	package: {
 		name: deno.name,
-		version: Deno.args[0] ?? deno.version ?? '0.1.0',
+		version: Deno.args[0] ?? deno.version,
 		description:
 			`A TypeScript word counting library. Count the number of characters, words, sentences, paragraphs, and lines in your text instantly with ${packageName}.`,
 		keywords: [
