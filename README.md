@@ -317,13 +317,13 @@ Here is an overview of how we determine the counts for each token type:
 
 ## 🤝 Contributing
 
-Contributions, issues, and forks are welcome.
+Contributions, issues, and forks are welcome. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for more details.
 
 ## 🧾 License
 
 Copyright © 2025 [John Goodliff](https://johng.io/r/tally-ts).
 
-This project is licensed under the MIT license. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) for more details.
 
 ## 🖇️ Related
 
