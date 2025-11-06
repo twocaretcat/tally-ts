@@ -27,8 +27,8 @@ type Count<
  * @property by - Breakdown by grapheme type (spaces, letters, digits, punctuation, symbols)
  * @property related - Related counts (lines, paragraphs)
  */
-interface GraphemeCount
-	extends Count<{
+interface GraphemeCount extends
+	Count<{
 		spaces: TotalCount;
 		letters: TotalCount;
 		digits: TotalCount;
@@ -170,9 +170,11 @@ export class Tally {
 		let paragraphs = 0;
 		let lines = 0;
 
-		for (const { segment: currentGrapheme } of this.graphemeSegmenter.segment(
-			text,
-		)) {
+		for (
+			const { segment: currentGrapheme } of this.graphemeSegmenter.segment(
+				text,
+			)
+		) {
 			total++;
 
 			if (isNewline(currentGrapheme)) {
@@ -270,9 +272,11 @@ export class Tally {
 	countSentences(text: string): SentenceCount {
 		let total = 0;
 
-		for (const { segment: currentSentence } of this.sentenceSegmenter.segment(
-			text,
-		)) {
+		for (
+			const { segment: currentSentence } of this.sentenceSegmenter.segment(
+				text,
+			)
+		) {
 			// Don't count empty lines as sentences
 			if (currentSentence.trim() === '') {
 				continue;

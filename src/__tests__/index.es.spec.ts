@@ -124,8 +124,7 @@ const testCases = [
 		label: '1 sentence w/ punctuation',
 		// https://tatoeba.org/en/sentences/show/1360
 		// CC BY 2.0 FR (https://creativecommons.org/licenses/by/2.0/fr/)
-		input:
-			'Cuando yo estaba en el instituto, me levantaba a las 6 todas las mañanas.',
+		input: 'Cuando yo estaba en el instituto, me levantaba a las 6 todas las mañanas.',
 		expectedGraphemes: {
 			total: 73,
 			by: {

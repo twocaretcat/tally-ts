@@ -164,7 +164,7 @@ const testCases = [
 		label: '2 sentences',
 		// https://tatoeba.org/en/sentences/show/1370
 		// CC BY 2.0 FR (https://creativecommons.org/licenses/by/2.0/fr/)
-		input: "Я не могу ей сейчас рассказать. Всё уже не так просто.",
+		input: 'Я не могу ей сейчас рассказать. Всё уже не так просто.',
 		expectedGraphemes: {
 			total: 54,
 			by: {
