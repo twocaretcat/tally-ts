@@ -29,6 +29,11 @@ jobs:
           deno-version: v2.x
           cache: true
 
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+
       - name: 📥 Install dependencies
         run: deno install
 

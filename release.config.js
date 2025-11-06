@@ -24,14 +24,7 @@ export default {
 			'@semantic-release/exec',
 			{
 				prepareCmd: 'deno run -A scripts/update-version.ts ${nextRelease.version}',
-				publishCmd: 'deno task build:npm && deno publish --allow-dirty',
-			},
-		],
-		[
-			'@semantic-release/npm',
-			{
-				npmPublish: true,
-				pkgRoot: outDir,
+				publishCmd: 'deno task build:npm && deno publish --allow-dirty && cd npm && npm publish && cd ..',
 			},
 		],
 		[
