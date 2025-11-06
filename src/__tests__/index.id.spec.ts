@@ -164,8 +164,7 @@ const testCases = [
 	{
 		label: '2 sentences',
 		// Google Translate
-		input:
-			'Aku tidak bisa memberitahunya sekarang. Tidak sesederhana itu lagi.',
+		input: 'Aku tidak bisa memberitahunya sekarang. Tidak sesederhana itu lagi.',
 		expectedGraphemes: {
 			total: 67,
 			by: {
