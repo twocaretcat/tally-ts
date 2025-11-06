@@ -2,7 +2,7 @@
 	"$schema": "https://johng.io/schema/project-metadata.json",
 	"name": "tally-ts",
 	"background": "A TypeScript word counting library. Count the number of characters, words, sentences, paragraphs, and lines in your text instantly with tally-ts.",
-	"logoPath": "logo.svg",
+	"logoPath": "docs/logo.svg",
 	"category": "Library",
 	"subcategory": "TypeScript",
 	"schema": {

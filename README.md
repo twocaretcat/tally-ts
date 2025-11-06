@@ -2,7 +2,7 @@
 <div align="center">
 	<h1 class="projectName">
 		<a href="https://tally.johng.io" title="tally-ts">
-			<img class="projectLogo" src="logo.svg" alt="Project logo" title="Project logo" width="256">
+			<img class="projectLogo" src="docs/logo.svg" alt="Project logo" title="Project logo" width="256">
 		</a>
 	</h1>
 	<p class="projectBadges info">
