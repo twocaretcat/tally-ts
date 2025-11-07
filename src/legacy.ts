@@ -1,3 +1,40 @@
+/**
+ * **DEPRECATED**: Legacy text counting implementation using a state machine approach.
+ *
+ * This module provides a single-pass character-by-character text analysis function
+ * that counts various text elements using a finite state machine. It uses grapheme
+ * segmentation for Unicode support but employs ASCII-only character classification.
+ *
+ * **This implementation is deprecated.** Use the class-based `Tally` implementation
+ * instead, which provides:
+ * - Better Unicode support with proper character classification
+ * - Locale-aware word and sentence segmentation
+ * - Cleaner API with reusable counter instances
+ * - More accurate results across different writing systems
+ *
+ * @example Basic usage (deprecated)
+ * ```ts
+ * import { getCounts } from "@twocaretcat/tally-ts/legacy";
+ *
+ * const counts = getCounts("Hello, world! This is a test.");
+ * console.log(counts.words); // 6
+ * console.log(counts.sentences); // 2
+ * console.log(counts.letters); // 20
+ * ```
+ *
+ * @example With locale (deprecated)
+ * ```ts
+ * import { getCounts } from "@twocaretcat/tally-ts/legacy";
+ *
+ * const counts = getCounts("Héllo wörld! 👋", "en");
+ * console.log(counts.characters); // 15 (includes emoji as one grapheme)
+ * ```
+ *
+ * @deprecated Use `Tally` class from the main module instead
+ *
+ * @module
+ */
+
 type LastCharacterState =
 	| typeof WAS_BLANK
 	| typeof WAS_IN_PARAGRAPH
