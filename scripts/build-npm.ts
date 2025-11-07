@@ -28,6 +28,7 @@ await build({
 		lib: ['ES2022', 'DOM'],
 	},
 	shims: {},
+	test: false,
 	package: {
 		name: deno.name,
 		version: Deno.args[0] ?? deno.version,
