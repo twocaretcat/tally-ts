@@ -5,6 +5,7 @@
     "jsr:@deno/dnt@~0.42.3": "0.42.3",
     "jsr:@std/assert@^1.0.14": "1.0.15",
     "jsr:@std/assert@^1.0.15": "1.0.15",
+    "jsr:@std/async@^1.0.15": "1.0.15",
     "jsr:@std/data-structures@^1.0.9": "1.0.9",
     "jsr:@std/expect@^1.0.17": "1.0.17",
     "jsr:@std/fmt@1": "1.0.8",
@@ -23,7 +24,7 @@
     "npm:@semantic-release/git@^10.0.1": "10.0.1_semantic-release@24.2.9__marked@15.0.12",
     "npm:@types/node@*": "24.2.0",
     "npm:conventional-changelog-conventionalcommits@^9.1.0": "9.1.0",
-    "npm:semantic-release@24.2.9": "24.2.9_marked@15.0.12"
+    "npm:semantic-release@^24.2.9": "24.2.9_marked@15.0.12"
   },
   "jsr": {
     "@david/code-block-writer@13.0.3": {
@@ -44,6 +45,9 @@
       "dependencies": [
         "jsr:@std/internal@^1.0.12"
       ]
+    },
+    "@std/async@1.0.15": {
+      "integrity": "55d1d9d04f99403fe5730ab16bdcc3c47f658a6bf054cafb38a50f046238116e"
     },
     "@std/data-structures@1.0.9": {
       "integrity": "033d6e17e64bf1f84a614e647c1b015fa2576ae3312305821e1a4cb20674bb4d"
@@ -78,6 +82,7 @@
       "integrity": "a917ffdeb5924c9be436dc78bc32e511760e14d3a96e49c607fc5ecca86d0092",
       "dependencies": [
         "jsr:@std/assert@^1.0.15",
+        "jsr:@std/async",
         "jsr:@std/data-structures",
         "jsr:@std/fs@^1.0.19",
         "jsr:@std/internal@^1.0.12",
@@ -1735,7 +1740,7 @@
       "npm:@semantic-release/exec@^7.1.0",
       "npm:@semantic-release/git@^10.0.1",
       "npm:conventional-changelog-conventionalcommits@^9.1.0",
-      "npm:semantic-release@24.2.9"
+      "npm:semantic-release@^24.2.9"
     ]
   }
 }
