@@ -1,4 +1,52 @@
 /**
+ * A locale-aware text analysis library that provides comprehensive counting
+ * and classification of text elements using the Unicode-aware Intl.Segmenter API.
+ *
+ * This module enables accurate counting of graphemes, words, and sentences across
+ * different languages and writing systems, with detailed breakdowns by character type
+ * (letters, digits, spaces, punctuation, symbols) and structural elements (lines, paragraphs).
+ *
+ * @example Basic usage
+ * ```ts
+ * import { Tally } from "@twocaretcat/tally-ts";
+ *
+ * const counter = new Tally("en");
+ * const text = "Hello, world! 👋\nThis is a test.";
+ *
+ * // Count all elements at once
+ * const counts = counter.countAll(text);
+ * console.log(counts.words.total); // 7
+ * console.log(counts.graphemes.by.punctuation.total); // 2
+ * console.log(counts.lines.total); // 2
+ * ```
+ *
+ * @example Locale-specific counting
+ * ```ts
+ * import { Tally } from "@twocaretcat/tally-ts";
+ *
+ * // Use Japanese locale for proper word segmentation
+ * const jaCounter = new Tally("ja");
+ * const result = jaCounter.countWords("これはテストです");
+ * console.log(result.total); // Correctly segments Japanese text
+ * ```
+ *
+ * @example Detailed grapheme analysis
+ * ```ts
+ * import { Tally } from "@twocaretcat/tally-ts";
+ *
+ * const counter = new Tally();
+ * const graphemes = counter.countGraphemes("Hello 123! 🎉");
+ *
+ * console.log(graphemes.total); // Total graphemes including emoji
+ * console.log(graphemes.by.letters.total); // Letter count
+ * console.log(graphemes.by.digits.total); // Digit count
+ * console.log(graphemes.by.symbols.total); // Symbol count (includes emoji)
+ * ```
+ *
+ * @module
+ */
+
+/**
  * A simple count object containing only a total.
  *
  * @property total - The total count value
