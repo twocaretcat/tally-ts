@@ -10,6 +10,13 @@
 		<img src="https://img.shields.io/github/languages/top/twocaretcat/tally-ts.svg" alt="Language" title="Language">
 		<img src="https://img.shields.io/github/repo-size/twocaretcat/tally-ts.svg" alt="Repository size" title="Repository size">
 		<a href="LICENSE"><img src="https://img.shields.io/github/license/twocaretcat/tally-ts.svg" alt="Project license" title="Project license"/></a>
+		<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release" alt="Semantic Release" title="Semantic Release"/></a>
+	</p>
+	<p class="projectBadges status">
+		<a href="https://github.com/twocaretcat/tally-ts/releases/latest"><img src="https://img.shields.io/github/v/release/twocaretcat/tally-ts.svg" alt="Latest release" title="Latest release"/></a>
+		<a href="https://jsr.io/@twocaretcat/tally-ts"><img src="https://jsr.io/badges/@twocaretcat/tally-ts" alt="View package on JSR" title="View package on JSR" /></a>
+		<a href="https://jsr.io/@twocaretcat/tally-ts"><img src="https://jsr.io/badges/@twocaretcat/tally-ts/score" alt="View package on JSR" title="View package on JSR" /></a>
+		<a href="https://www.npmjs.com/package/@twocaretcat/tally-ts"><img src="https://img.shields.io/npm/v/@twocaretcat/tally-ts" alt="View package on npmjs" title="View package on npmjs"/></a>
 	</p>
 	<p class="projectDesc">
 		A TypeScript word counting library. Count the number of characters, words, sentences, paragraphs, and lines in your text instantly with tally-ts
@@ -17,11 +24,11 @@
 	<br/>
 </div>
 
+## 👋 About
+
 > [!NOTE]
 > We use the terms _**graphemes**_ and _**characters**_ interchangeably in this README, although technically we are
 > counting Unicode grapheme clusters rather than Unicode characters.
-
-## 👋 About
 
 **tally-ts** is a TypeScript library that uses modern APIs like `Intl.Segmenter` to count the number of characters,
 words, paragraphs, and lines in the input. It can also show breakdowns for different types of characters like letters,
@@ -48,47 +55,95 @@ digits, spaces, punctuation, and symbols/special characters.
 
 ## 📦 Installation
 
-> [!NOTE]
-> **tally-ts** is not yet published to NPM or JSR, but you can install it directly from the GitHub repository.
+> [!TIP]
+> JSR has some advantages if you're using TypeScript or Deno:
+>
+> - It ships typed, modern ESM code by default
+> - No need for separate type declarations
+> - Faster, leaner installs without extraneous files
+>
+> You can use JSR with your favorite package manager.
 
-Install the library using your preferred package manager:
+This package is available on both [JSR](https://jsr.io/@twocaretcat/tally-ts) and
+[npm](https://www.npmjs.com/package/@twocaretcat/tally-ts). Install it using your preferred package manager:
 
-<!-- Uncomment this section when the package is published to NPM and JSR -->
-<!-- ```bash
-npm install tally-ts
+<details>
+<summary>🦕 Deno</summary>
+
+```bash
+deno add jsr:@twocaretcat/tally-ts     # JSR (recommended)
 ```
 
 ```bash
-pnpm add tally-ts
+deno add npm:@twocaretcat/tally-ts     # npm
+```
+
+</details>
+
+<details>
+<summary>🥖 Bun</summary>
+
+```bash
+bunx jsr add @twocaretcat/tally-ts     # JSR
 ```
 
 ```bash
-yarn add tally-ts
+bun add @twocaretcat/tally-ts          # npm
+```
+
+</details>
+
+<details>
+<summary>🟢 npm</summary>
+
+```bash
+npx jsr add @twocaretcat/tally-ts      # JSR
 ```
 
 ```bash
-bun add tally-ts
+npm install @twocaretcat/tally-ts      # npm
+```
+
+</details>
+
+<details>
+<summary>🟧 pnpm</summary>
+
+```bash
+pnpm i jsr:@twocaretcat/tally-ts       # JSR
 ```
 
 ```bash
-deno add npm:tally-ts
-``` -->
+pnpm add @twocaretcat/tally-ts         # npm
+```
+
+</details>
+
+<details>
+<summary>🧶 yarn</summary>
 
 ```bash
-npm install github:twocaretcat/tally-ts
+yarn add jsr:@twocaretcat/tally-ts     # JSR
 ```
 
 ```bash
-pnpm add github:twocaretcat/tally-ts
+yarn add @twocaretcat/tally-ts         # npm
+```
+
+</details>
+
+<details>
+<summary>🖇 vlt</summary>
+
+```bash
+vlt install jsr:@twocaretcat/tally-ts  # JSR
 ```
 
 ```bash
-yarn add github:twocaretcat/tally-ts
+vlt install @twocaretcat/tally-ts      # npm
 ```
 
-```bash
-bun add github:twocaretcat/tally-ts
-```
+</details>
 
 ## 🕹️ Usage
 
@@ -317,7 +372,8 @@ Here is an overview of how we determine the counts for each token type:
 
 ## 🤝 Contributing
 
-Contributions, issues, and forks are welcome. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for more details.
+Pull requests, bug reports, feature requests, and other kinds of contributions are greatly appreciated. See
+[the contribution guide](docs/CONTRIBUTING.md) for more details.
 
 ## 🧾 License
 
