@@ -1,6 +1,4 @@
 const denoFile = 'deno.json';
-const outDir = 'npm';
-const outGlob = `${outDir}/**`;
 
 /**
  * @type {import('semantic-release').GlobalConfig}
@@ -30,29 +28,10 @@ export default {
 		[
 			'@semantic-release/git',
 			{
-				assets: [denoFile, outGlob],
+				assets: [denoFile],
 				message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
 			},
 		],
-		[
-			'@semantic-release/github',
-			{
-				assets: [
-					{
-						path: [
-							'src/**/*.ts',
-							'README.md',
-							'LICENSE',
-							denoFile,
-						],
-						name: 'jsr-package',
-					},
-					{
-						path: outGlob,
-						name: 'npm-package',
-					},
-				],
-			},
-		],
+		'@semantic-release/github',
 	],
 };
