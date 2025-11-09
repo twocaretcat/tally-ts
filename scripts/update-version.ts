@@ -27,11 +27,11 @@ try {
 	denoConfig.version = version;
 	await Deno.writeTextFile(
 		denoConfigPath,
-		JSON.stringify(denoConfig, null, 2) + '\n',
+		JSON.stringify(denoConfig, null, '\t') + '\n',
 	);
 	console.log(`✅ Updated ${denoConfigPath}`);
 } catch (error) {
-	console.error(`❌ Failed to update deno.json: ${error.message}`);
+	console.error(`❌ Failed to update deno.json: ${(error as Error).message}`);
 	Deno.exit(1);
 }
 
