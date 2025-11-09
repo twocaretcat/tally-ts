@@ -73,7 +73,7 @@ export type AllCounts = GraphemeCount['related'] & {
  * Options for configuring the Tally instance.
  */
 export interface Options {
-	/** The locale or locales to use for segmentation (default: 'en')
+	/** The locale or locales to use for segmentation. If not provided, the default locale is used as determined by `Intl.Segmenter`.
 	 *
 	 * This is passed directly to the Segmenter constructor.
 	 */
