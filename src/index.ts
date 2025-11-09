@@ -66,7 +66,7 @@ export class Tally {
 	 * @throws {Error} If Intl.Segmenter is not available and no custom Segmenter is provided
 	 */
 	constructor(options: Options = {}) {
-		const { locales = 'en', Segmenter } = options;
+		const { locales, Segmenter } = options;
 		const SegmenterImpl = Segmenter ?? Intl?.Segmenter;
 
 		if (!SegmenterImpl) {
