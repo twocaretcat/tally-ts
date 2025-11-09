@@ -1,4 +1,10 @@
 /**
+ * Type definitions for Tally.
+ *
+ * @module
+ */
+
+/**
  * A simple count object containing only a total.
  *
  * @property total - The total count value
@@ -62,3 +68,68 @@ export type AllCounts = GraphemeCount['related'] & {
 	words: WordCount;
 	sentences: SentenceCount;
 };
+
+/**
+ * Options for configuring the Tally instance.
+ */
+export interface Options {
+	/** The locale or locales to use for segmentation (default: 'en')
+	 *
+	 * This is passed directly to the Segmenter constructor.
+	 */
+	locales?: Intl.LocalesArgument;
+	/** Custom Segmenter constructor (e.g., a polyfill or alternative implementation) */
+	Segmenter?: SegmenterConstructor;
+}
+
+/**
+ * Segment result returned by the segment() method.
+ */
+interface Segment {
+	/** The segmented text */
+	segment: string;
+	/** Whether the segment is word-like (only needed for word segmentation) */
+	isWordLike?: boolean;
+}
+
+/**
+ * Options for creating a Segmenter instance.
+ */
+interface SegmenterOptions {
+	/** The granularity level: 'grapheme', 'word', or 'sentence' */
+	granularity: 'grapheme' | 'word' | 'sentence';
+}
+
+/**
+ * Resolved options returned by resolvedOptions().
+ */
+interface ResolvedSegmenterOptions {
+	/** The resolved locale */
+	locale: string;
+}
+
+/**
+ * Minimal Segmenter interface that defines only what Tally needs.
+ * Compatible with Intl.Segmenter but doesn't require implementing the full API.
+ */
+export interface SegmenterInterface {
+	/**
+	 * Segments the input text according to the segmenter's granularity.
+	 * @param input - The text to segment
+	 * @returns An iterable of segment data
+	 */
+	segment(input: string): Iterable<Segment>;
+
+	/**
+	 * Returns the resolved options for this segmenter.
+	 * @returns Object containing at least the resolved locale
+	 */
+	resolvedOptions(): ResolvedSegmenterOptions;
+}
+
+/**
+ * Constructor signature for Segmenter implementations.
+ */
+export interface SegmenterConstructor {
+	new (locale?: Intl.LocalesArgument, options?: SegmenterOptions): SegmenterInterface;
+}

@@ -47,29 +47,41 @@
  */
 
 import { isDigit, isLetter, isNewline, isPunctuation, isSpace, isSymbol } from './classifier.ts';
-import type { AllCounts, GraphemeCount, SentenceCount, WordCount } from './types.ts';
+import type { AllCounts, GraphemeCount, Options, SegmenterInterface, SentenceCount, WordCount } from './types.ts';
 
 /**
  * Text counter that uses Intl.Segmenter for locale-aware text analysis.
  * Creates segmenters once for efficient reuse across multiple counting operations.
  */
 export class Tally {
-	private graphemeSegmenter: Intl.Segmenter;
-	private wordSegmenter: Intl.Segmenter;
-	private sentenceSegmenter: Intl.Segmenter;
+	private graphemeSegmenter: SegmenterInterface;
+	private wordSegmenter: SegmenterInterface;
+	private sentenceSegmenter: SegmenterInterface;
 	private resolvedLocale: string;
 
 	/**
-	 * Creates a new TextCounter instance
+	 * Creates a new Tally instance
 	 *
-	 * @param locale - The locale to use for segmentation (default: 'en')
+	 * @param options - Configuration options including locale(s) and custom Segmenter constructor
+	 * @throws {Error} If Intl.Segmenter is not available and no custom Segmenter is provided
 	 */
-	constructor(locale: Intl.LocalesArgument = 'en') {
-		this.graphemeSegmenter = new Intl.Segmenter(locale, {
+	constructor(options: Options = {}) {
+		const { locales = 'en', Segmenter } = options;
+		const SegmenterImpl = Segmenter ?? Intl?.Segmenter;
+
+		if (!SegmenterImpl) {
+			throw new Error(
+				'Intl.Segmenter is not available in this environment. Tally requires Intl.Segmenter support, which is available in modern runtimes and browsers (see https://webstatus.dev/features/intl-segmenter). Please upgrade your environment or provide a custom Segmenter implementation via the options.',
+			);
+		}
+
+		this.graphemeSegmenter = new SegmenterImpl(locales, {
 			granularity: 'grapheme',
 		});
-		this.wordSegmenter = new Intl.Segmenter(locale, { granularity: 'word' });
-		this.sentenceSegmenter = new Intl.Segmenter(locale, {
+		this.wordSegmenter = new SegmenterImpl(locales, {
+			granularity: 'word',
+		});
+		this.sentenceSegmenter = new SegmenterImpl(locales, {
 			granularity: 'sentence',
 		});
 		this.resolvedLocale = this.graphemeSegmenter.resolvedOptions().locale;

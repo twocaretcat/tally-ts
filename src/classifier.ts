@@ -9,6 +9,8 @@
  * The checks are performed using Unicode property escapes in regular
  * expressions (`\p{...}`), ensuring consistent behavior for scripts across
  * languages and writing systems.
+ *
+ * @module
  */
 
 /**
