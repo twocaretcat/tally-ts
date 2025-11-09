@@ -46,57 +46,8 @@
  * @module
  */
 
+import { isDigit, isLetter, isNewline, isPunctuation, isSpace, isSymbol } from './classifier.ts';
 import type { AllCounts, GraphemeCount, SentenceCount, WordCount } from './types.ts';
-
-/**
- * Checks if a grapheme is a digit as per Unicode General Category Nd (Number, Decimal Digit).
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is a digit
- */
-const isDigit = (grapheme: string) => /\p{Nd}/u.test(grapheme);
-
-/**
- * Checks if a grapheme is a letter as per Unicode General Category L (Letter).
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is a letter
- */
-const isLetter = (grapheme: string) => /\p{L}/u.test(grapheme);
-
-/**
- * Checks if a grapheme is a space as per Unicode General Category Zs (Space Separator).
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is a space
- */
-const isSpace = (grapheme: string) => /\p{Zs}/u.test(grapheme);
-
-/**
- * Checks if a grapheme is a symbol a symbol as per Unicode General Category P (Punctuation)
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is punctuation
- */
-const isPunctuation = (grapheme: string) => /\p{P}/u.test(grapheme);
-
-/**
- * Checks if a grapheme is a symbol a symbol as per Unicode General Category S (Symbol)
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is a space
- */
-const isSymbol = (grapheme: string) => /\p{S}/u.test(grapheme);
-
-/**
- * Checks if a grapheme is a newline.
- *
- * @param grapheme - The grapheme to check
- * @returns True if the grapheme is a newline
- */
-function isNewline(grapheme: string): boolean {
-	return grapheme === '\n';
-}
 
 /**
  * Text counter that uses Intl.Segmenter for locale-aware text analysis.
