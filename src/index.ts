@@ -47,16 +47,16 @@
  */
 
 import { isDigit, isLetter, isNewline, isPunctuation, isSpace, isSymbol } from './classifier.ts';
-import type { AllCounts, GraphemeCount, Options, SegmenterInterface, SentenceCount, WordCount } from './types.ts';
+import type { AllCounts, GraphemeCount, Options, Segmenter, SentenceCount, WordCount } from './types.ts';
 
 /**
  * Text counter that uses Intl.Segmenter for locale-aware text analysis.
  * Creates segmenters once for efficient reuse across multiple counting operations.
  */
 export class Tally {
-	private graphemeSegmenter: SegmenterInterface;
-	private wordSegmenter: SegmenterInterface;
-	private sentenceSegmenter: SegmenterInterface;
+	private graphemeSegmenter: Segmenter;
+	private wordSegmenter: Segmenter;
+	private sentenceSegmenter: Segmenter;
 	private resolvedLocale: string;
 
 	/**
