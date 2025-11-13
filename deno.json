@@ -6,7 +6,21 @@
 		"./legacy": "./src/legacy.ts"
 	},
 	"tasks": {
-		"build:npm": "deno run --allow-read --allow-write --allow-env --allow-run=npm scripts/build-npm.ts"
+		"build:npm": {
+			"description": "Build the package for NPM. No build step is required for JSR.\n\nUSAGE: deno task build:npm",
+			"command": "deno run --allow-read --allow-write --allow-env --allow-run=npm scripts/build-npm.ts"
+		},
+		"build:segments": {
+			"description": "Generate segments for test input strings using a recent version of ICU. These segments are used to mock `Intl.Segmenter` for consistent test results across runtimes.\n\nUSAGE: deno task build:segments",
+			"command": "node scripts/generate-segments.mjs"
+		},
+		"test": {
+			"description": "Run all tests.\n\nUSAGE: deno task test",
+			"command": "deno test --allow-read=./src/__tests__/fixtures",
+			"dependencies": [
+				"build:segments"
+			]
+		}
 	},
 	"fmt": {
 		"exclude": [

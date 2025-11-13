@@ -112,7 +112,7 @@ interface ResolvedSegmenterOptions {
  * Minimal Segmenter interface that defines only what Tally needs.
  * Compatible with Intl.Segmenter but doesn't require implementing the full API.
  */
-export interface SegmenterInterface {
+export interface Segmenter {
 	/**
 	 * Segments the input text according to the segmenter's granularity.
 	 * @param input - The text to segment
@@ -131,5 +131,5 @@ export interface SegmenterInterface {
  * Constructor signature for Segmenter implementations.
  */
 export interface SegmenterConstructor {
-	new (locale?: Intl.LocalesArgument, options?: SegmenterOptions): SegmenterInterface;
+	new (locale?: Intl.LocalesArgument, options?: SegmenterOptions): Segmenter;
 }
