@@ -1,8 +1,9 @@
 /**
  * Updates version in deno.json
  * Usage: deno run -A scripts/update-version.ts <version>
+ *
+ * @module
  */
-
 const version = Deno.args[0];
 
 if (!version) {

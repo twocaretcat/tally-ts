@@ -6,19 +6,42 @@
 		"./legacy": "./src/legacy.ts"
 	},
 	"tasks": {
+		"version": {
+			"description": "Sets the version in deno.json.\n\nUSAGE: deno task version <version>",
+			"command": "deno run --allow-read=deno.json --allow-write=deno.json scripts/update-version.ts"
+		},
 		"build:npm": {
-			"description": "Build the package for NPM. No build step is required for JSR.\n\nUSAGE: deno task build:npm",
+			"description": "Build the package for npm. No build step is required for JSR.\n\nUSAGE: deno task build:npm",
 			"command": "deno run --allow-read --allow-write --allow-env --allow-run=npm scripts/build-npm.ts"
 		},
-		"build:segments": {
-			"description": "Generate segments for test input strings using a recent version of ICU. These segments are used to mock `Intl.Segmenter` for consistent test results across runtimes.\n\nUSAGE: deno task build:segments",
+		"test:segments": {
+			"description": "Generate segments for test input strings using a recent version of ICU. These segments are used to mock `Intl.Segmenter` for consistent test results across runtimes.\n\nUSAGE: deno task test:segments",
 			"command": "node scripts/generate-segments.mjs"
 		},
 		"test": {
 			"description": "Run all tests.\n\nUSAGE: deno task test",
-			"command": "deno test --allow-read=./src/__tests__/fixtures",
+			"command": "deno test --allow-read=./src/__tests__/fixtures/",
 			"dependencies": [
-				"build:segments"
+				"test:segments"
+			]
+		},
+		"publish:jsr": {
+			"description": "Publish the package to JSR.\n\nUSAGE: deno task publish:jsr",
+			"command": "deno publish --allow-dirty"
+		},
+		"publish:npm": {
+			"description": "Publish the package to npm.\n\nUSAGE: deno task publish:npm",
+			"command": "cd npm && npm publish",
+			"dependencies": [
+				"build:npm"
+			]
+		},
+		"publish": {
+			"description": "Publish the package to JSR and npm.\n\nUSAGE: deno task publish",
+			"dependencies": [
+				"build:npm",
+				"publish:npm",
+				"publish:jsr"
 			]
 		}
 	},

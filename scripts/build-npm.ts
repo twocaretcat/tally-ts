@@ -1,3 +1,8 @@
+/**
+ * Builds the npm distribution for the package using DNT.
+ *
+ * @module
+ */
 import { build, emptyDir } from '@deno/dnt';
 import deno from '../deno.json' with { type: 'json' };
 

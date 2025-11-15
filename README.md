@@ -421,28 +421,34 @@ Here is an overview of how we determine the counts for each token type:
 
 ## 🤝 Contributing
 
-Pull requests, bug reports, feature requests, and other kinds of contributions are greatly appreciated. See
-[the contribution guide](docs/CONTRIBUTING.md) for more details.
+Pull requests, bug reports, feature requests, and other kinds of contributions are welcome. See the
+[contribution guide](docs/CONTRIBUTING.md) for more details.
 
 ## 🧾 License
 
-Copyright © 2025 [John Goodliff](https://johng.io/r/tally-ts).
+Copyright © 2025 [John Goodliff](https://johng.io/r/tally-ts) ([@twocaretcat](https://github.com/twocaretcat)).
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) for more details.
+This project is licensed under the MIT license. See the [license](LICENSE) for more details.
 
 ## 🖇️ Related
 
 ### Recommended
+
+Other projects you might like:
 
 - **👤 [Tally Chrome Extension](https://github.com/twocaretcat/Tally-Extension)**: A Chrome extension to easily count
   the number of words, characters, and paragraphs on any site
 
 ### Used By
 
+Notable projects that depend on this one:
+
 - **👤 [Tally](https://github.com/twocaretcat/Tally)**: A free online tool to count the number of characters, words,
   paragraphs, and lines in your text. **Tally** uses this library to compute counts
 
 ### Alternatives
+
+Similar projects you might want to use instead:
 
 - **🌐 [Alfaaz](https://github.com/thecodrr/alfaaz)**: An alternative multilingual word counting library with less
   features, but faster execution
