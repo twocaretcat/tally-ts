@@ -97,8 +97,6 @@ async function loadAllTestCases(): Promise<Map<string | undefined, TestCase[]>> 
  * word, and sentence counting. Each test case is run with its specified locale
  * and optional mock Segmenter to ensure consistent results.
  *
- * @param skipCountWords - Whether to skip word counting tests (default: false)
- *
  * @remarks
  * This function automatically adds a test case for empty string input and
  * organizes tests by locale using nested describe blocks.
@@ -112,7 +110,7 @@ async function loadAllTestCases(): Promise<Map<string | undefined, TestCase[]>> 
  * await runAllTestCases(true);
  * ```
  */
-async function runAllTestCases(skipCountWords = false) {
+async function runAllTestCases() {
 	const testCasesByLocaleMap = await loadAllTestCases();
 
 	testCasesByLocaleMap.set(undefined, [{
@@ -140,29 +138,29 @@ async function runAllTestCases(skipCountWords = false) {
 
 	for (const [locale, testCases] of testCasesByLocaleMap.entries()) {
 		describe(`with locale '${locale}'`, () => {
-			for (const testCase of testCases) {
+			for (const { label, input, expectedOutputMap, MockSegmenter } of testCases) {
 				const tally = new Tally({
 					locales: locale,
-					Segmenter: testCase.MockSegmenter,
+					Segmenter: MockSegmenter,
 				});
 
-				describe(`and input '${testCase.label}'`, () => {
+				describe(`and input '${label}'`, () => {
 					it('grapheme count is correct', () => {
-						const actual = tally.countGraphemes(testCase.input);
+						const actual = tally.countGraphemes(input);
 
-						expect(actual).toStrictEqual(testCase.expectedOutputMap.graphemes);
+						expect(actual).toStrictEqual(expectedOutputMap.graphemes);
 					});
 
-					it('word count is correct', { ignore: skipCountWords }, () => {
-						const actual = tally.countWords(testCase.input);
+					it('word count is correct', () => {
+						const actual = tally.countWords(input);
 
-						expect(actual).toStrictEqual(testCase.expectedOutputMap.words);
+						expect(actual).toStrictEqual(expectedOutputMap.words);
 					});
 
 					it('sentence count is correct', () => {
-						const actual = tally.countSentences(testCase.input);
+						const actual = tally.countSentences(input);
 
-						expect(actual).toStrictEqual(testCase.expectedOutputMap.sentences);
+						expect(actual).toStrictEqual(expectedOutputMap.sentences);
 					});
 				});
 			}
