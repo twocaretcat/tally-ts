@@ -31,7 +31,7 @@ const expectedOutputMap: ExpectedOutputMap = {
 		},
 	},
 	words: {
-		total: 8,
+		total: 9,
 	},
 	sentences: {
 		total: 1,
