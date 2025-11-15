@@ -1,5 +1,5 @@
 /**
- * Main test suite for the Tally class.
+ * Main test suite for the {@link Tally} class.
  *
  * @module
  */
