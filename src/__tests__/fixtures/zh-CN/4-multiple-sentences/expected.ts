@@ -29,6 +29,7 @@ const expectedOutputMap: ExpectedOutputMap = {
 			},
 		},
 	},
+	// Word segmentation can be ambiguous
 	// Segmentation suggested by GPT-5:
 	// | Segment | Type        | Meaning          |
 	// | ------- | ----------- | ---------------- |
@@ -45,8 +46,9 @@ const expectedOutputMap: ExpectedOutputMap = {
 	// | 的       | particle    | (nominalizer)    |
 	// | 事       | noun        | matter / thing   |
 	// | 。       | punctuation | —                |
+	// ICU 77.1's segmentation is used as a baseline here
 	words: {
-		total: 12,
+		total: 11,
 	},
 	// words: false,
 	sentences: {
