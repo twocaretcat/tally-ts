@@ -187,14 +187,11 @@ deno task build:npm 0.2.0  # Build with specific version
 The package is published to JSR as [@twocaretcat/tally-ts](https://jsr.io/@twocaretcat/tally-ts) and to npm as
 [@twocaretcat/tally-ts](https://www.npmjs.com/package/@twocaretcat/tally-ts).
 
-> [!IMPORTANT]
-> You don't need to any of these tasks manually. Publishing is automated with
-> [Semantic Release](https://semantic-release.gitbook.io/semantic-release) using the
-> [publish workflow](../.github/workflows/publish.yml). Semantic Release is configured in
-> [release.config.js](../release.config.js).
+Publishing is automated with [Semantic Release](https://semantic-release.gitbook.io/semantic-release) using the
+[publish workflow](../.github/workflows/publish.yml). Semantic Release is configured in
+[release.config.js](../release.config.js).
 
-<details>
-<summary>Steps:</summary>
+### Workflow
 
 1. Pushes to the `main` branch will trigger the workflow, where we run Semantic Release
 2. Commits will trigger new releases based on their type. We use the
@@ -206,54 +203,23 @@ The package is published to JSR as [@twocaretcat/tally-ts](https://jsr.io/@twoca
    - `docs:` - No version bump
 
 3. If a commit triggers a release, we will:
-   1. Update the version in `deno.json` using `deno task version <version>` and push the changes
-   2. Run `deno task publish`, which in turn, runs:
-      1. `deno task build:npm` to build the package for npm
-      2. `deno task publish:jsr` to publish to JSR (we run the npm build first to make sure it is successful)
-      3. `deno task publish:npm` to publish to npm
-   3. Create a GitHub release with the release notes
-
-</details>
+   1. Update the version in `deno.json` using `deno task version <version>`, push the changes, and create a new tag
+   2. Build the package for npm using `deno task build:npm`
+   3. Publish the package to npm with `npm publish`
+   4. Publish the package to JSR with `deno publish`
+   5. Create a GitHub release with the release notes
 
 ### Updating the Version in [deno.json]
+
+> [!IMPORTANT]
+> You don't need to run this task manually. It is run automatically by the publish workflow to bump the version number
+> before publishing.
 
 Update the version field in [deno.json] with the provided value:
 
 ```bash
 deno task version 1.0.0
 ```
-
-This is used by the publish workflow to bump the version number before publishing.
-
-### Publishing to All Registries
-
-Publish to all registries at once using the `publish` task:
-
-```bash
-deno task publish
-```
-
-This runs the `build:npm` task first and is used by the publish workflow.
-
-### Publishing to JSR
-
-Publish to the JSR registry:
-
-```bash
-deno task publish:jsr
-```
-
-This is simply a shorthand for `deno publish --allow-dirty`.
-
-### Publishing to npm
-
-Publish to the npm registry:
-
-```bash
-deno task publish:npm
-```
-
-This task runs the `build:npm` task first and requires the `npm` CLI to be installed.
 
 ## Code Style Guidelines
 
