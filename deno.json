@@ -24,25 +24,6 @@
 			"dependencies": [
 				"test:segments"
 			]
-		},
-		"publish:jsr": {
-			"description": "Publish the package to JSR.\n\nUSAGE: deno task publish:jsr",
-			"command": "deno publish --allow-dirty"
-		},
-		"publish:npm": {
-			"description": "Publish the package to npm.\n\nUSAGE: deno task publish:npm",
-			"command": "cd npm && npm publish",
-			"dependencies": [
-				"build:npm"
-			]
-		},
-		"publish": {
-			"description": "Publish the package to JSR and npm.\n\nUSAGE: deno task publish",
-			"dependencies": [
-				"build:npm",
-				"publish:npm",
-				"publish:jsr"
-			]
 		}
 	},
 	"fmt": {

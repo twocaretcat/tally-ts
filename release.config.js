@@ -22,7 +22,7 @@ export default {
 			'@semantic-release/exec',
 			{
 				prepareCmd: 'deno task version ${nextRelease.version}',
-				publishCmd: 'deno task publish',
+				publishCmd: 'deno task build:npm && cd npm && npm publish && cd .. && deno publish --allow-dirty',
 			},
 		],
 		[
