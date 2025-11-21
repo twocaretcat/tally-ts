@@ -1,9 +1,10 @@
 <!-- Project Header -->
 <div align="center">
 	<h1 class="projectName">
-		<a href="https://tally.johng.io" title="tally-ts">
+		<picture>
+			<source media="(prefers-color-scheme: light)" srcset="docs/logo-light.svg">
 			<img class="projectLogo" src="docs/logo.svg" alt="Project logo" title="Project logo" width="256">
-		</a>
+		</picture>
 	</h1>
 	<p class="projectBadges info">
 		<img src="https://johng.io/badges/category/Library.svg" alt="Project category" title="Project category">
