@@ -420,10 +420,26 @@ Here is an overview of how we determine the counts for each token type:
 | **symbol**    | A non-letter, non-digit, non-space, non-newline character. This includes emojis, symbols, punctuation, and most whitespace. **Examples:** `,`, `%`, `#`, `😊`, `貓`, `\t`.                                                              |
 | **line**      | A literal newline character (`\n`).                                                                                                                                                                                                     |
 
+## 🛟 Support
+
+Need help? See the [support resources](https://github.com/twocaretcat/.github/blob/main/docs/SUPPORT.md) for information on how to:
+
+- request features
+- report bugs
+- ask questions
+- report security vulnerabilities
+
 ## 🤝 Contributing
 
-Pull requests, bug reports, feature requests, and other kinds of contributions are welcome. See the
-[contribution guide](docs/CONTRIBUTING.md) for more details.
+Want to help out? Pull requests are welcome for:
+
+- feature implementations
+- bug fixes
+- translations
+- documentation
+- tests
+
+See the [contribution guide](../../contribute) for more details.
 
 ## 🧾 License
 
