@@ -42,6 +42,7 @@ digits, spaces, punctuation, and symbols/special characters.
   characters in the input.
 - **🌍 Multilingual support:** Uses `Intl.Segmenter` for accurate word and character segmentation across many languages
   and scripts.
+- **⚡ Tiny & dependency-free:** Zero dependencies and [only ~900 bytes gzipped](https://bundlephobia.com/package/@twocaretcat/tally-ts).
 - **👨🏻‍💻 Open-source:** Know how to code? Help make **tally-ts** better by contributing to the project on GitHub, or copy
   it and make your own version!
 
